@@ -1,10 +1,27 @@
 # Stockapp
 
+   [Live Demo](stock-trading-app.vercel.app)
+
+
+<img width="1772" alt="Screenshot 2021-07-25 at 23 26 10" src="https://user-images.githubusercontent.com/16503306/126913969-00682174-0f09-41af-96c8-7ee46bfed507.png">
+
+
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.1.1.
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run first `npm install` then Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+
+## Bonus points
+
+* ~~Ensure a persistence mechanism
+* ~~Maintain a single position when the same symbol is added multiple times
+* ~~Option to buy/sell a number of shares 
+* Support multiple currencies and normalize to EUR
+* Support multiple accounts / portfolios
+* ~~Automatically update price data on a regular interval (e.g. 5s.)
+* Ensure the solution contains a test coverage of ~80%
 
 ## Code scaffolding
 
