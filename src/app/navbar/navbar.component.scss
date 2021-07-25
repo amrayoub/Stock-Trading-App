@@ -1,0 +1,18 @@
+@import "../../styles.scss";
+
+.navbar {
+  background-color: $bgColor;
+  border-bottom: 1px solid gray;
+  .nav-link {
+    color: $fontColor;
+  }
+
+  a,
+  a:hover,
+  .active {
+    color: green;
+  }
+  .navbar-toggler {
+    border: 1px rgba(0, 0, 0, 0.7) solid;
+  }
+}

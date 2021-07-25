@@ -1,0 +1,43 @@
+<nav class="navbar navbar-expand-lg">
+  <a class="navbar-brand" routerLink="/home"
+    ><i class="fas fa-chart-line"></i> StockApp</a
+  >
+  <button
+    class="navbar-toggler text-white d-lg-none"
+    type="button"
+    data-toggle="collapse"
+    data-target="#collapsibleNavId"
+    aria-controls="collapsibleNavId"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    Menu
+  </button>
+  <div class="collapse navbar-collapse" id="collapsibleNavId">
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li *ngIf="showMenuItem" class="nav-item">
+        <a class="nav-link" routerLinkActive="active" routerLink="/buying-cart"
+          >My Shares<span class="sr-only">(current)</span></a
+        >
+      </li>
+    </ul>
+
+    <ul class="navbar-nav mt-2 mt-lg-0">
+      <li *ngIf="!showMenuItem" class="nav-item">
+        <a class="nav-link" routerLinkActive="active" routerLink="/login"
+          >Login<span class="sr-only">(current)</span></a
+        >
+      </li>
+      <li *ngIf="!showMenuItem" class="nav-item">
+        <a class="nav-link" routerLinkActive="active" routerLink="/register"
+          >Register<span class="sr-only">(current)</span></a
+        >
+      </li>
+      <li *ngIf="showMenuItem" class="nav-item">
+        <a class="nav-link" href="#" (click)="logout()"
+          >Logout<span class="sr-only">(current)</span></a
+        >
+      </li>
+    </ul>
+  </div>
+</nav>

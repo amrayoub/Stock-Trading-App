@@ -1,0 +1,48 @@
+<section id="profile" class="my-5">
+  <div class="container">
+    <div class="row">
+      <table class="table text-white">
+        <thead class="text-center">
+          <th>Symbol</th>
+          <th>Name</th>
+          <th>Price</th>
+          <th># Contractors</th>
+          <th>Buy value</th>
+          <th>current value</th>
+          <th>Quantity</th>
+          <th>Yield</th>
+        </thead>
+        <tbody id="tableBody">
+          <tr class="text-center" *ngFor="let stock of myShares">
+            <td>{{ stock.vwdKey }}</td>
+            <td>{{ stock.name }}</td>
+            <td>{{ stock.price }}</td>
+            <td>{{ stock.volume || 0 }}</td>
+            <td>{{ stock.open }}</td>
+            <td>{{ getCurValue(stock) }}</td>
+            <th>{{ stock.quantity }}</th>
+            <td>{{ getYield(stock) }}</td>
+            <td>
+              <button
+                (click)="sellStock(stock)"
+                class="btn text-white bg-warning"
+              >
+                sell
+              </button>
+            </td>
+          </tr>
+          <tr class="text-center">
+            <td class="font-weight-bold">Total</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>{{ totalBought }}</td>
+            <td>{{ totalCur }}</td>
+            <td>{{ totalQuantity }}</td>
+            <td>{{ totalYield }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
