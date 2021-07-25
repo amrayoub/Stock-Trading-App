@@ -15,7 +15,7 @@ Run first `npm install` then Run `ng serve` for a dev server. Navigate to `http:
 
 ## Bonus points
 
-*Ensure a persistence mechanism 
+* Ensure a persistence mechanism 
 *  Maintain a single position when the same symbol is added multiple times
 * Option to buy/sell a number of shares 
 * Automatically update price data on a regular interval (e.g. 5s.)
