@@ -1,6 +1,5 @@
 # Stockapp
 
-   [Live Demo](stock-trading-app.vercel.app)
 
 
 <img width="1772" alt="Screenshot 2021-07-25 at 23 26 10" src="https://user-images.githubusercontent.com/16503306/126913969-00682174-0f09-41af-96c8-7ee46bfed507.png">
