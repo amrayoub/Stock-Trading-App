@@ -23,10 +23,6 @@ export class BuyingCartComponent implements OnInit {
   }
 
   UpdateShares() {
-    this.totalBought = 0;
-    this.totalCur = 0;
-    this.totalYield = 0;
-    this.totalQuantity = 0;
     this.myShares = JSON.parse(localStorage.getItem('myShares') || '{}');
     this.myShares.forEach((element) => {
       this.totalBought += element.open;
@@ -35,6 +31,7 @@ export class BuyingCartComponent implements OnInit {
       this.totalYield += this.getYield(element);
     });
   }
+
   sellStock(stock: Stock) {
     let mssg = this._StockService.sellStock(stock);
     if (mssg.includes('no') == true) {

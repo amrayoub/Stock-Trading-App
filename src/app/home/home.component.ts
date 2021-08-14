@@ -55,9 +55,8 @@ export class HomeComponent implements OnInit {
     'URW.NL',
     'UNA.NL'
   );
-  lastDataIndex = 24;
 
-  addForm = new FormGroup({
+  readonly addForm = new FormGroup({
     vwdKey: new FormControl('', Validators.required),
     volume: new FormControl('', Validators.required),
     open: new FormControl('', Validators.required),
@@ -74,9 +73,6 @@ export class HomeComponent implements OnInit {
         (res: Stock) => {
           this.totalBought += Number(res.open);
           this.allStocks.push(res);
-          if (this.allStocks.length == this.lastDataIndex) {
-            this.retrieveData();
-          }
         },
         (error) => {
           console.log(error);
@@ -110,7 +106,7 @@ export class HomeComponent implements OnInit {
     };
     this.allStocks = this._StockService.addNewStock(newStock as Stock);
     $('#addStock').modal('hide');
-    this.reset();
+    this.resetForm();
   }
 
   deleteStock(stock: Stock) {
@@ -145,7 +141,7 @@ export class HomeComponent implements OnInit {
     return yieldVal.toPrecision(3);
   }
 
-  reset() {
+  resetForm() {
     this.addForm.controls.vwdKey.setValue('');
     this.addForm.controls.volume.setValue('');
     this.addForm.controls.previousClose.setValue('');

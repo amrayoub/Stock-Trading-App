@@ -68,7 +68,6 @@ export class StockDataService {
     let a = this.allStocks.filter((item: Stock) => {
       return item.vwdKey == stock.vwdKey;
     });
-    console.log(a);
 
     let index = this.findStockIndex(stock);
     if (index >= 0) {

@@ -41,10 +41,10 @@
             <td>{{ stock.vwdKey }}</td>
             <td>{{ stock.name || "-" }}</td>
             <td>{{ stock.price }}</td>
-            <td>{{ stock.volume || 0 }}</td>
+            <td>{{ stock.volume || 0 |  number: '1.0-0'}}</td>
             <td>{{ stock.open }}</td>
-            <td>{{ getCurrentValue(stock) }}</td>
-            <td>{{ getYield(stock) || 0 }}</td>
+            <td>{{ getCurrentValue(stock) |  number: '1.0-0' }}</td>
+            <td>{{ getYield(stock) || 0 |  number: '1.0-0' }}</td>
             <td>
               <button
                 (click)="buyStock(stock)"
