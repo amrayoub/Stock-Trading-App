@@ -41,10 +41,10 @@
             <td>{{ stock.vwdKey }}</td>
             <td>{{ stock.name || "-" }}</td>
             <td>{{ stock.price }}</td>
-            <td>{{ stock.volume || 0 |  number: '1.0-0'}}</td>
+            <td>{{ stock.volume || 0 | number: "1.0-0" }}</td>
             <td>{{ stock.open }}</td>
-            <td>{{ getCurrentValue(stock) |  number: '1.0-0' }}</td>
-            <td>{{ getYield(stock) || 0 |  number: '1.0-0' }}</td>
+            <td>{{ getCurrentValue(stock) | number: "1.0-0" }}</td>
+            <td>{{ getYield(stock) || 0 | number: "1.0-0" }}</td>
             <td>
               <button
                 (click)="buyStock(stock)"
@@ -61,15 +61,6 @@
                 delete
               </button>
             </td>
-          </tr>
-          <tr class="text-center">
-            <td class="font-weight-bold">Total</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td>{{ totalBought }}</td>
-            <td>{{ totalCur }}</td>
-            <td>{{ totalYield }}</td>
           </tr>
         </tbody>
       </table>
@@ -93,7 +84,7 @@
             type="button"
             class="close text-white"
             data-dismiss="modal"
-            (click)="reset()"
+            (click)="resetForm()"
             aria-label="Close"
           >
             <span aria-hidden="true">&times;</span>
@@ -114,7 +105,7 @@
           <button
             type="button"
             class="btn btn-danger"
-            (click)="reset()"
+            (click)="resetForm()"
             data-dismiss="modal"
           >
             Close

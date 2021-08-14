@@ -9,10 +9,6 @@ import { Stock } from '../shared/interface/stock';
 })
 export class BuyingCartComponent implements OnInit {
   myShares: Stock[] = [];
-  totalBought: number = 0;
-  totalCur: number = 0;
-  totalYield: number = 0;
-  totalQuantity: number = 0;
   constructor(
     private _StockService: StockDataService,
     private _Toastr: ToastrService
@@ -24,12 +20,6 @@ export class BuyingCartComponent implements OnInit {
 
   UpdateShares() {
     this.myShares = JSON.parse(localStorage.getItem('myShares') || '{}');
-    this.myShares.forEach((element) => {
-      this.totalBought += element.open;
-      this.totalQuantity += element.quantity;
-      this.totalCur += this.getCurValue(element);
-      this.totalYield += this.getYield(element);
-    });
   }
 
   sellStock(stock: Stock) {
@@ -47,8 +37,7 @@ export class BuyingCartComponent implements OnInit {
     const currentValue = stock.price || 0;
     const quantity = stock.volume || 0;
 
-    let currentVal = (currentValue) * quantity;
-    this.totalCur += currentVal;
+    let currentVal = currentValue * quantity;
 
     return currentVal;
   }
@@ -56,8 +45,7 @@ export class BuyingCartComponent implements OnInit {
   getYield(stock: Stock) {
     const currentValue = this.getCurValue(stock) || 0;
     const price = stock.price || 0;
-    let yieldVal = (((currentValue) - price) / price) * 100;
-    this.totalYield += yieldVal;
+    let yieldVal = ((currentValue - price) / price) * 100;
     return yieldVal;
   }
 }

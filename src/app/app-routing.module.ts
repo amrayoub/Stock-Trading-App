@@ -7,10 +7,14 @@ import { RegisterComponent } from './register/register.component';
 import { BuyingCartComponent } from './buying-cart/buying-cart.component';
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'home', component: HomeComponent },
+  { path: 'home', component: HomeComponent, canActivate: [AuthGuardService] },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'buying-cart', component: BuyingCartComponent },
+  {
+    path: 'buying-cart',
+    component: BuyingCartComponent,
+    canActivate: [AuthGuardService],
+  },
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes, { useHash: true })],

@@ -21,14 +21,13 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.refershPrice();
     this.getAllStocks();
+    this.retrieveData();
+
   }
 
   private destory$: Subject<void> = new Subject();
 
   allStocks: Stock[] = [];
-  totalBought: number = 0;
-  totalCur: number = 0;
-  totalYield: number = 0;
   symbols = of(
     'AEX.NL',
     'AALB.NL',
@@ -55,7 +54,7 @@ export class HomeComponent implements OnInit {
     'URW.NL',
     'UNA.NL'
   );
-
+  lastDataIndex = 24;
   readonly addForm = new FormGroup({
     vwdKey: new FormControl('', Validators.required),
     volume: new FormControl('', Validators.required),
@@ -71,7 +70,6 @@ export class HomeComponent implements OnInit {
       )
       .subscribe(
         (res: Stock) => {
-          this.totalBought += Number(res.open);
           this.allStocks.push(res);
         },
         (error) => {
@@ -128,7 +126,6 @@ export class HomeComponent implements OnInit {
     const quantity = stock.volume || 0;
 
     let currentVal = (currentValue as number) * quantity;
-    this.totalCur += currentVal;
 
     return currentVal;
   }
@@ -137,7 +134,6 @@ export class HomeComponent implements OnInit {
     const currentValue = this.getCurrentValue(stock) || 0;
     const price = stock.price || 0;
     let yieldVal = (((currentValue as number) - price) / price) * 100;
-    this.totalYield += yieldVal;
     return yieldVal.toPrecision(3);
   }
 
