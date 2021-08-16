@@ -19,10 +19,9 @@ export class HomeComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.refershPrice();
     this.getAllStocks();
     this.retrieveData();
-
+    this.refershPrice();
   }
 
   private destory$: Subject<void> = new Subject();
