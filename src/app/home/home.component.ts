@@ -107,10 +107,6 @@ export class HomeComponent implements OnInit {
     this.resetForm();
   }
 
-  deleteStock(stock: Stock) {
-    this.allStocks = this._StockService.removeStock(stock);
-  }
-
   retrieveData() {
     this._StockService.allStocks = this.allStocks;
     this.allStocks = this._StockService.retrievePrevData();

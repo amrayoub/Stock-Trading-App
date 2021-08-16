@@ -33,15 +33,6 @@ export class StockDataService {
     localStorage.setItem('addations', JSON.stringify(this.newStocks));
     return this.allStocks;
   }
-  removeStock(stock: Stock): Stock[] {
-    this.allStocks = this.allStocks.filter((item: Stock) => {
-      return item.vwdKey != stock.vwdKey;
-    });
-    this.deletedStocks.push(stock);
-    localStorage.setItem('deletions', JSON.stringify(this.deletedStocks));
-    return this.allStocks;
-  }
-
   retrievePrevData(): Stock[] {
     if (localStorage.getItem('addations')) {
       this.newStocks = JSON.parse(localStorage.getItem('addations') || '{}');

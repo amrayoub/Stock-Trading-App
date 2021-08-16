@@ -7,9 +7,8 @@ import { AuthGuardService } from '../shared/service/auth-guard.service';
   styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent implements OnInit {
-  showMenuItem: any;
-  constructor(
-    private _Router: Router,
+  showMenuItem: boolean = true;
+    constructor(
     private _AuthGuardService: AuthGuardService
   ) {
     this._AuthGuardService.isLogin.subscribe((flag) => {
