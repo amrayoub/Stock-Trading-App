@@ -71,7 +71,7 @@ export class StockDataService {
     localStorage.setItem('myShares', JSON.stringify(this.myShares));
     return 'You have successfully bought a share!';
   }
-  sellStock(stock: Stock): string {
+  sellStock(stock: Stock): Observable<Boolean> {
     let index = this.findStockIndex(stock);
     if (index >= 0) {
       if (this.myShares[index].quantity >= 1) {
@@ -83,12 +83,15 @@ export class StockDataService {
         });
       }
     } else {
-      return 'You have no Shares to sell!';
+     // return 'You have no Shares to sell!';
+
+     return of(false);
     }
 
     localStorage.setItem('myShares', JSON.stringify(this.myShares));
 
-    return 'You have successfully sold a share';
+    //return 'You have successfully sold a share';  
+    return of(true);
   }
   findStockIndex(stock: Stock) {
     return this.myShares.findIndex((item) => item.vwdKey === stock.vwdKey);

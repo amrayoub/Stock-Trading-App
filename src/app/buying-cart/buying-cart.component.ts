@@ -23,13 +23,10 @@ export class BuyingCartComponent implements OnInit {
   }
 
   sellStock(stock: Stock) {
-    let mssg = this._StockService.sellStock(stock);
-    if (mssg.includes('no') == true) {
-      this._Toastr.error(mssg);
-    } else {
-      this._Toastr.success(mssg);
-    }
-
+    this._StockService.sellStock(stock).subscribe(
+      () => this._Toastr.success('You have successfully sold a share'),
+      () => this._Toastr.error('You have no Shares to sell')
+    )
     this.UpdateShares();
   }
 
