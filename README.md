@@ -1,6 +1,7 @@
 # Stockapp
 
-<img width="1772" alt="Screenshot 2021-07-25 at 23 26 10" src="https://user-images.githubusercontent.com/16503306/126913969-00682174-0f09-41af-96c8-7ee46bfed507.png">
+![Screenshot 2021-08-17 at 13 33 58](https://user-images.githubusercontent.com/16503306/129718896-e1d0085d-d0e8-4255-87a0-eb630a86c953.png)
+
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.1.1.
 
